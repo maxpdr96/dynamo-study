@@ -33,3 +33,7 @@ build/
 .vscode/
 
 native-libs/
+
+mvnw
+mvnw.cmd
+.mvn/
