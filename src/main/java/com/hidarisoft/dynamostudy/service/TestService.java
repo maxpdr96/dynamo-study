@@ -18,8 +18,9 @@ public class TestService {
     private SecondChain secondChain;
     private ThirdChain thirdChain;
 
-    public TestModel callChains(@Valid TestModel reqTestModel){
-        firstChain.nextHandle(secondChain)
+    public TestModel callChains(@Valid TestModel reqTestModel) {
+        firstChain
+                .nextHandle(secondChain)
                 .nextHandle(thirdChain);
 
         return firstChain.process(reqTestModel);

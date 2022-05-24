@@ -10,6 +10,7 @@ import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
 import com.amazonaws.util.ImmutableMapParameter;
 import com.hidarisoft.dynamostudy.entity.TestModel;
 import com.hidarisoft.dynamostudy.exception.TestException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,9 @@ import java.util.Optional;
 
 @Slf4j
 @Repository
-public record TestRepository(DynamoDBMapper dynamoDBMapper) {
+@RequiredArgsConstructor
+public class TestRepository {
+    private final DynamoDBMapper dynamoDBMapper;
     private static final String PRIMARY_KEY = ":primaryKey";
     private static final String SORT_KEY = ":sortKey";
     private static final String KEY_CONDITION = "pk = " + PRIMARY_KEY + " AND sk = " + SORT_KEY;
